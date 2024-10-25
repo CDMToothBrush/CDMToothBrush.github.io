@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交通監控攝影機畫面主頁</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --text-color: #e0e0e0;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .cctv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .cctv-item {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .cctv-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .cctv-item a {
+            display: block;
+            padding: 20px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 1.2em;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cctv-item a:hover {
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>交通監控攝影機畫面主頁</h1>
+    </header>
+    <div class="container">
+        <div class="cctv-grid">
+            <div class="cctv-item">
+                <a href="home_to_yangming_cctv.html">陽明山交通監控</a>
+            </div>
+            <div class="cctv-item">
+                <a href="home_to_neihu_cctv.html">內湖交通監控</a>
+            </div>
+            <div class="cctv-item">
+                <a href="home_to_bali_cctv.html">八里交通監控</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
