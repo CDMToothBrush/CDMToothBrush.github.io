@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豐原交通監控畫面</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f5a623;
+            --background-color: #f0f4f8;
+            --card-background: #ffffff;
+            --text-color: #333333;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        h1 {
+            color: #ffffff;
+            font-size: 2em;
+            margin: 0;
+            font-weight: 700;
+            padding: 15px 0;
+            background-color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .camera-container {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            margin: 30px auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        img:hover {
+            transform: scale(1.02);
+        }
+        
+        .button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1001;
+        }
+
+        .button {
+            background-color: var(--card-background);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 1em;
+        }
+
+        .button:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .camera-container {
+                margin: 20px 10px;
+            }
+            
+            img {
+                height: 300px;
+            }
+            
+            .button-container {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .button {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }        
+    </style>    
+    <script>
+        function reloadImage(imgElement) {            
+            const originalSrc = imgElement.src;
+            const newSrc = originalSrc + (originalSrc.includes('?') ? '&t=' : '?t=') + new Date().getTime();
+            imgElement.src = newSrc;
+        }
+    </script>
+</head>
+<body>
+    <div class="button-container">
+        <a href="cctv.html" class="button">回首頁</a>
+        <button onclick="location.reload(true)" class="button">重新整理</button>
+    </div>
+    <header>
+        <h1>豐原區交通監控畫面</h1>
+    </header>   
+    <div class="container">
+        <div class="camera-container">
+            <h1>國道1號汐止五股高架道路 25K+673處</h1>
+            <img src="https://cctvn.freeway.gov.tw/abs2mjpg/bmjpg?camera=12560&t=1730428874803" alt="國道1號汐止五股高架道路 南向（下塔悠交流道 - 環北交流道）" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container">
+            <h1>國道1號林口-桃園段 41K+850處</h1>
+            <img src="https://cctvn.freeway.gov.tw/abs2mjpg/bmjpg?camera=14180&t=1730428942400" alt="國道1號 南向（林口交流道 - 桃園交流道）" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container">
+            <h1>國道1號五股楊梅高架道路 48K+595處</h1>
+            <img src="https://cctvn.freeway.gov.tw/abs2mjpg/bmjpg?camera=14850&t=1730428987810" alt="國道1號五股楊梅高架道路 南向（泰山轉接道交流道 - 機場系統交流道）" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container">
+            <h1>國道1號中壢段 69K+505處</h1>
+            <img src="https://cctvn.freeway.gov.tw/abs2mjpg/bmjpg?camera=16951&t=1730429050214" alt="國道1號五股楊梅高架道路 南向（中壢轉接二交流道 - 校前路交流道）69K+505處" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container">
+            <h1>國道1號 南向（高架楊梅端 - 湖口交流道）72K+500處</h1>
+            <img src="https://cctvn.freeway.gov.tw/abs2mjpg/bmjpg?camera=17260&t=1730429279801" alt="國道1號 南向（高架楊梅端 - 湖口交流道）72K+500處" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container"></div>
+            <h1>國道1號 南向（湖口交流道 - 湖口服務區）85K+460處</h1>
+            <img src="https://cctvn.freeway.gov.tw/abs2mjpg/bmjpg?camera=18540&t=1730430699802" alt="國道1號 南向（湖口交流道 - 湖口服務區）85K+460處" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container">
+            <h1>國道1號 南向（新竹交流道 - 新竹系統交流道）98K+890處</h1>
+            <img src="https://cctvn.freeway.gov.tw/abs2mjpg/bmjpg?camera=19880&t=1730430810885" alt="國道1號 南向（新竹交流道 - 新竹系統交流道）98K+890處" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container">
+            <h1>國道1號 南向（頭份交流道 - 頭屋交流道）121K+355處</h1>
+            <img src="https://cctvc.freeway.gov.tw/abs2mjpg/bmjpg?camera=355&t=1730430870798" alt="國道1號 南向（頭份交流道 - 頭屋交流道）121K+355處" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container"></div>
+            <h1>國道1號 南向（三義交流道 - 泰安服務區）156K+025處</h1>
+            <img src="https://cctvc.freeway.gov.tw/abs2mjpg/bmjpg?camera=199&t=1730430923790" alt="國道1號 南向（三義交流道 - 泰安服務區）156K+025處" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container">
+            <h1>國道1號 北向（台中系統交流道 - 后里交流道）165K+350處</h1>
+            <img src="https://cctvc.freeway.gov.tw/abs2mjpg/bmjpg?camera=466&t=1730430985348" alt="國道1號 北向（台中系統交流道 - 后里交流道）165K+350處" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container">
+            <h1>國道4號 西向（后豐交流道 - 台中系統交流道）12K+850處</h1>
+            <img src="https://cctvc.freeway.gov.tw/abs2mjpg/bmjpg?camera=441&t=1730431169175" alt="國道4號 西向（后豐交流道 - 台中系統交流道）12K+850處" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container">
+            <h1>豐原區豐勢路國豐路(國4)</h1>
+            <img src="https://cctv-ss03.thb.gov.tw/T3-166K+190?t=1730428628801" alt="豐原區豐勢路國豐路(國4)" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="camera-container">
+            <h1>豐原區豐勢路二段396號</h1>
+            <img src="https://cctv-ss03.thb.gov.tw/T3-166K+900?t=1730428570262" alt="台中市豐原區豐勢路二段396號(7-11豐泰門市旁)" onclick="reloadImage(this)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+        </div>
+    </div>
+</body>
+</html>

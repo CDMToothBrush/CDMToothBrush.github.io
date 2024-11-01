@@ -3,80 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>交通監控攝影機畫面</title>
+    <title>內湖交通監控攝影機畫面</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f5a623;
+            --background-color: #f0f4f8;
+            --card-background: #ffffff;
+            --text-color: #333333;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+        
         body {
-            font-family: '微軟正黑體', Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            line-height: 1.6;
         }
-        h1 {
-            color: #333;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-            margin-top: 30px;
+        .button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1001;
+        }    
+        .button {
+            background-color: var(--card-background);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 1em;
         }
+
+        .button:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }          
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 40px 20px;
         }
-        @media screen and (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            h1 {
-                font-size: 24px;
-            }
-            img {
-                max-width: 100%;
-            }
+        
+        header {
+            background-color: var(--primary-color);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        @media screen and (max-width: 480px) {
-            h1 {
-                font-size: 20px;
-            }
+        
+        h1 {
+            color: #ffffff;
+            font-size: 2em;
+            margin: 0;
+            font-weight: 700;
+            padding: 15px 0;
+            background-color: var(--primary-color);
+            margin-bottom: 20px;
         }
-
+        
+        .camera-container {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            margin: 30px auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+        
         img {
             width: 100%;
-            height: auto;
-            max-width: 800px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
             display: block;
             margin: 0 auto;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
-        body {
-        background-color: #1a1a1a;
-        color: #f0f0f0;
+
+        img:hover {
+            transform: scale(1.02);
         }
-        h1 {
-            color: #4CAF50;
-            border-bottom-color: #4CAF50;
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .camera-container {
+                margin: 20px 10px;
+            }
+            img {
+                height: 300px;
+            }
         }
-        img {
-            border: 1px solid #4CAF50;
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--card-background);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .home-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            .home-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            .button-container {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .button {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }            
         }        
-    </style>    
+    </style>   
+    <script>
+        function reloadImage(imgElement) {            
+            const originalSrc = imgElement.src;
+            const newSrc = originalSrc + (originalSrc.includes('?') ? '&t=' : '?t=') + new Date().getTime();
+            imgElement.src = newSrc;
+        }
+    </script>     
 </head>
 <body>
-<h1>集賢路-三信路口(西側號誌桿上)</h1>
-<img src="https://cctvatis3.ntpc.gov.tw/C000166" alt="集賢路-三信路口(西側號誌桿上)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
-<br>
-<h1>中正重陽橋</h1>
-<img src="https://cctv.bote.gov.taipei:8501/mjpeg/048" alt="048-中正重陽橋" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
-<br>
-<img src="https://cctvatis4.ntpc.gov.tw/C000249" alt="重陽橋" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
-<br>
-<h1>自強隧道往故宮入口0K+474M</h1>
-<img src="https://cctv.bote.gov.taipei:8501/mjpeg/203" alt="203-自強隧道往故宮入口0K+474M" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
-<br>
-<h1>洲子街-瑞光路393巷</h1>
-<img src="https://cctv.bote.gov.taipei:8501/mjpeg/367" alt="367-洲子街-瑞光路393巷" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
-<br>
-<h1>內湖港墘</h1>
-<img src="https://cctv.bote.gov.taipei:8501/mjpeg/145" alt="145-內湖港墘" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer">
+    <div class="button-container">
+        <a href="cctv.html" class="button">回首頁</a>
+        <button onclick="location.reload(true)" class="button">重新整理</button>
+    </div>
+    <header>
+        <h1>內湖區交通監控畫面</h1>
+    </header>
+    <div class="container">
+        <div class="camera-container">
+            <h1>集賢路-三信路口</h1>
+            <img src="https://cctvatis3.ntpc.gov.tw/C000166" alt="集賢路-三信路口(西側號誌桿上)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+        </div>
 
+        <div class="camera-container">
+            <h1>中正重陽橋</h1>
+            <img src="https://cctv.bote.gov.taipei:8501/mjpeg/048" alt="048-中正重陽橋" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <img src="https://cctvatis4.ntpc.gov.tw/C000249" alt="重陽橋" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+        </div>
 
+        <div class="camera-container">
+            <h1>自強隧道往故宮入口0K+474M</h1>
+            <img src="https://cctv.bote.gov.taipei:8501/mjpeg/203" alt="自強隧道往故宮入口0K+474M" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+        </div>
+        
+        <div class="camera-container">
+            <h1>洲子街-瑞光路393巷</h1>
+            <img src="https://cctv.bote.gov.taipei:8501/mjpeg/367" alt="洲子街-瑞光路393巷" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+        </div>
+
+        <div class="camera-container">
+            <h1>內湖港墘</h1>
+            <img src="https://cctv.bote.gov.taipei:8501/mjpeg/145" alt="內湖港墘" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+        </div>
+    </div>
 </body>
 </html>
