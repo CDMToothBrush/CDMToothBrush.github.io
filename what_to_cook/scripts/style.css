@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', '微軟正黑體', sans-serif;
+  background: #fff8f0;
+  min-height: 100vh;
+}
+.kitchen-bg {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fff8f0 60%, #ffe0b2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header {
+  padding: 1.2rem 0 0.5rem 0;
+  text-align: center;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #ff7043;
+  letter-spacing: 0.1em;
+  text-shadow: 1px 2px 0 #fff3e0;
+}
+.table-area {
+  background: #fff3e0;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  padding: 2rem 1rem 3rem 1rem;
+  margin: 1rem auto;
+  max-width: 500px;
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#pick-btn {
+  font-size: 2rem;
+  background: #ffb74d;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 1.2rem 2.5rem;
+  box-shadow: 0 4px 16px rgba(255,183,77,0.15);
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: background 0.2s;
+}
+#pick-btn:hover {
+  background: #ff7043;
+}
+.dishes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+.dish-card {
+  background: #fff;
+  border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  width: 160px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 1rem 1rem 1rem;
+  position: relative;
+  border: 4px solid #ffe0b2;
+}
+.dish-card.main {
+  border-color: #ff7043;
+  box-shadow: 0 4px 24px rgba(255,112,67,0.08);
+}
+.dish-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ffb74d;
+  background: #fffde7;
+  margin-bottom: 0.5rem;
+}
+.dish-card .dish-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ff7043;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+.dish-card .dish-recipe {
+  font-size: 0.95rem;
+  color: #6d4c41;
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+@media (max-width: 700px) {
+  .table-area {
+    max-width: 98vw;
+    padding: 1rem 0.2rem 2rem 0.2rem;
+  }
+  .dishes {
+    gap: 1rem;
+  }
+  .dish-card {
+    width: 120px;
+    min-height: 170px;
+    padding: 0.7rem 0.5rem 0.5rem 0.5rem;
+  }
+  .dish-card img {
+    width: 80px;
+    height: 80px;
+  }
+}
+.canopy-icon {
+  display: block;
+  margin: 0 auto 0.5rem auto;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.10));
+} 
