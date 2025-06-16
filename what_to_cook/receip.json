@@ -25,7 +25,7 @@
     "食譜": "牛肉片加醬油、米酒、胡椒粉、蛋白醃過，蔥切段，熱鍋加油，加入牛肉片炒熟，加入蔥段炒香，加椒粉、素蠔油調味。",
     "類別": "主菜",
     "圖片檔名": "stir_fried_beef_with_onion.jpg",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=-nMAMMzMiCY"
   },  
   {
     "料理名稱": "空心菜炒牛肉",
@@ -33,6 +33,13 @@
     "類別": "主菜",
     "圖片檔名": "stir_fried_beef_with_vegetables.jpg",
     "youtube": "https://www.youtube.com/watch?v=RaJBtPITpWA"
+  },
+  {
+    "料理名稱": "咖哩雞肉(豬肉)",
+    "食譜": "雞肉(豬肉)切塊先炒到表面微焦鎖住肉汁，洋蔥、馬鈴薯、胡蘿蔔也先炒過；洋蔥加咖哩粉炒過呈焦糖化，加入所有食材跟水煮15分鐘至熟透，再加入咖哩塊煮10分鐘至濃稠即可",
+    "類別": "主菜",
+    "圖片檔名": "curry_chicken.jpg",
+    "youtube": "https://www.youtube.com/watch?v=2m8S5e4idJo"
   },
   {
     "料理名稱": "竹筍炒肉絲",
@@ -46,7 +53,7 @@
     "食譜": "豆腐吸乾水分切片，兩面煎至金黃先起鍋，加入蒜頭、蔥段跟醬油、醬油膏、糖(選擇性)炒一下，豆腐回鍋，加一點水煮一下即可",
     "類別": "配菜",
     "圖片檔名": "fried_tofu.jpg",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=j7XDLI0vxHg&pp=ygUJ54WO6LGG6IWQ"
   },
   {
     "料理名稱": "荷包蛋",
@@ -54,6 +61,13 @@
     "類別": "配菜",
     "圖片檔名": "fried_egg.jpg",
     "youtube": ""
+  },
+  {
+    "料理名稱": "菜脯蛋",
+    "食譜": "菜脯條(或是人參脯)切碎先加一小匙糖炒香，蛋打散加入菜脯、蔥花、醬油調味，要鬆的話要加太白粉水，蛋不要拌太用力，最後熱鍋加油煎熟即可。",
+    "類別": "配菜",
+    "圖片檔名": "stir_fried_bean_sprouts.jpg",
+    "youtube": "https://www.youtube.com/watch?v=XQAEFtexStU"
   },
   {
     "料理名稱": "蕃茄炒蛋",
@@ -67,20 +81,27 @@
     "食譜": "小白菜洗淨切段，熱鍋快炒，加鹽調味。",
     "類別": "配菜",
     "圖片檔名": "stir_fried_bok_choy.jpg",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=wCpT5gMLm9E"
   },
   {
     "料理名稱": "炒高麗菜",
     "食譜": "高麗菜切片，熱鍋快炒，加鹽調味。",
     "類別": "配菜",
     "圖片檔名": "stir_fried_cabbage.jpg",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=N8WHDQ8Y2qY"
+  },
+  {
+    "料理名稱": "炒水蓮",
+    "食譜": "先用油煎蒜頭至金黃，加入水蓮及一些紅蘿蔔絲熱鍋快炒，再加入米酒去土味，最後加鹽調味。",
+    "類別": "配菜",
+    "圖片檔名": "stir_fried_water_lettuce.jpg",
+    "youtube": "https://www.youtube.com/watch?v=bWO3kol9R18"
   },
   {
     "料理名稱": "煎杏包菇",
     "食譜": "杏包菇切段，熱鍋煎至兩面金黃，加鹽調味。",
     "類別": "配菜",
     "圖片檔名": "grilled_mushroom.jpg",
-    "youtube": ""
+    "youtube": "https://www.youtube.com/watch?v=xTnOsFsk-KI"
   }
 ] 
