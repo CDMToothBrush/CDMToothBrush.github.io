@@ -1,0 +1,27 @@
+[
+    {
+        "name": "The Little Prince",
+        "coverImage": "https://example.com/covers/little-prince.jpg",
+        "updatedDate": "2023-01-15"
+    },
+    {
+        "name": "Where the Wild Things Are",
+        "coverImage": "https://example.com/covers/wild-things.jpg",
+        "updatedDate": "2023-02-10"
+    },
+    {
+        "name": "The Very Hungry Caterpillar",
+        "coverImage": "https://example.com/covers/hungry-caterpillar.jpg",
+        "updatedDate": "2023-03-05"
+    },
+    {
+        "name": "Goodnight Moon",
+        "coverImage": "https://example.com/covers/goodnight-moon.jpg",
+        "updatedDate": "2023-04-20"
+    },
+    {
+        "name": "Brown Bear, Brown Bear, What Do You See?",
+        "coverImage": "https://example.com/covers/brown-bear.jpg",
+        "updatedDate": "2023-05-15"
+    }
+]

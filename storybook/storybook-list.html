@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>故事書清單</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Baloo 2', cursive, Arial, sans-serif;
+      background: #fff8f0;
+      margin: 0;
+      padding: 0;
+      /* 新增可愛圓點與雲朵漸層背景 */
+      background-image:
+        radial-gradient(circle at 20% 30%, #ffe0e6 18px, transparent 20px),
+        radial-gradient(circle at 80% 20%, #fffbe6 24px, transparent 26px),
+        radial-gradient(circle at 60% 80%, #b2a4ff22 32px, transparent 34px),
+        linear-gradient(180deg, #fff8f0 70%, #ffe0e6 100%);
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1 {
+      text-align: center;
+      color: #ff8c94;
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 0 #fff;
+    }
+    .sort-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+      gap: 8px;
+    }
+    .sort-bar label {
+      font-size: 1rem;
+      color: #ffb347;
+      font-weight: bold;
+    }
+    .sort-bar select {
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ffb347;
+      padding: 4px 8px;
+      background: #fffbe6;
+      color: #ff8c94;
+    }
+    .book-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 24px;
+    }
+    .book-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(255, 140, 148, 0.15);
+      padding: 16px;
+      text-align: center;
+      transition: transform 0.2s;
+      cursor: pointer;
+      border: 2px solid #ffe0e6;
+      position: relative;
+    }
+    .book-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(255, 140, 148, 0.25);
+      border-color: #ffb6b9;
+    }
+    .book-cover {
+      width: 100%;
+      aspect-ratio: 576 / 704; /* 新增這行，維持寬高比 */
+      height: auto;
+      max-height: 704px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      background: #ffe0e6;
+      border: 2px solid #fffbe6;
+    }
+    .book-title {
+      font-size: 1.1rem;
+      color: #ff8c94;
+      font-weight: bold;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+    .book-date {
+      font-size: 0.9rem;
+      color: #b2a4ff;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 8px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      .book-card {
+        padding: 8px;
+      }
+      .book-cover {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 小橙橙🍊的故事書清單</h1>
+    <div class="sort-bar">
+      <label for="sort">排序：</label>
+      <select id="sort">
+        <option value="name">名稱</option>
+        <option value="date">更新日期</option>
+      </select>
+    </div>
+    <div class="book-list" id="bookList">
+      <!-- 書本卡片會由 JS 動態產生 -->
+    </div>
+  </div>
+  <script>
+    // 假資料，可自行擴充
+    const books = [
+      {
+        title: '小橘子的玩具回家記',
+        cover: './storybook-cover-list/src/assets/images/小橘子的玩具回家記.jpg',
+        url: 'https://g.co/gemini/share/dc584e8d31a3',
+        date: '2025-08-11'
+      },
+      {
+        title: '皮皮的睡覺小祕密',
+        cover: './storybook-cover-list/src/assets/images/皮皮的睡覺小祕密.jpg',
+        url: 'https://g.co/gemini/share/68394beca970',
+        date: '2025-08-11'
+      },
+      {
+        title: '小橘子的大冒險',
+        cover: './storybook-cover-list/src/assets/images/小橘子的大冒險.jpg',
+        url: 'https://g.co/gemini/share/af6153489b7f',
+        date: '2025-08-11'
+      },
+      {
+        title: '小橘子的成長魔法',
+        cover: './storybook-cover-list/src/assets/images/小橘子的成長魔法.jpg',
+        url: 'https://g.co/gemini/share/95a0a7d09a4e',
+        date: '2025-08-11'
+      }
+    ];
+
+    function renderBooks(list) {
+      const bookList = document.getElementById('bookList');
+      bookList.innerHTML = '';
+      list.forEach(book => {
+        const card = document.createElement('div');
+        card.className = 'book-card';
+        card.onclick = () => window.open(book.url, '_blank');
+        card.innerHTML = `
+          <img class="book-cover" src="${book.cover}" alt="${book.title}">
+          <div class="book-title">${book.title}</div>
+          <div class="book-date">更新日期：${book.date}</div>
+        `;
+        bookList.appendChild(card);
+      });
+    }
+
+    function sortBooks(type) {
+      let sorted = [...books];
+      if (type === 'name') {
+        sorted.sort((a, b) => a.title.localeCompare(b.title, 'zh-Hant'));
+      } else if (type === 'date') {
+        sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+      }
+      renderBooks(sorted);
+    }
+
+    document.getElementById('sort').addEventListener('change', (e) => {
+      sortBooks(e.target.value);
+    });
+
+    // 預設依名稱排序
+    sortBooks('name');
+  </script>
+</body>
+</html>
