@@ -1,0 +1,27 @@
+{
+  "name": "weight-tracker-app",
+  "version": "1.0.0",
+  "description": "A responsive web application to track weight, body fat percentage, and visceral fat for users Benson and Marvis.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "chart.js": "^3.7.0",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "keywords": [
+    "weight",
+    "tracker",
+    "health",
+    "fitness"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
