@@ -178,28 +178,133 @@
     <div class="container">
         <div class="camera-container">
             <h1>三民路中山一路</h1>
-            <img src="https://cctvatis3.ntpc.gov.tw/C000073?t=1729826793427" alt="三民路中山一路 西北向 蘆洲區三民路中山一路" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <video id="cam1" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://cctvatis3.ntpc.gov.tw/hls/C000073/live.m3u8";
+                const video = document.getElementById('cam1');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>   
         </div>
 
         <div class="camera-container">
             <h1>成蘆大橋環河分流點</h1>
-            <img src="https://cctvatis3.ntpc.gov.tw/C000167?t=172982268766" alt="三民路 西北向 蘆洲區成蘆大橋環河分流點" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
-            <img src="https://cctvatis1.ntpc.gov.tw/C000197?t=1729822829342" alt="洲后路 東南向 五股區成泰路洲后路" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <video id="cam2" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://cctvatis3.ntpc.gov.tw/hls/C000167/live.m3u8";
+                const video = document.getElementById('cam2');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>   
         </div>
 
         <div class="camera-container">
-            <h1>成泰路四段</h1>
-            <img src="https://cctvatis4.ntpc.gov.tw/C000269?t=1729822774910" alt="成泰路四段 東北向 五股區成泰路4段22巷口" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <h1>成泰路四段</h1>            
+            <video id="cam3" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://cctvatis4.ntpc.gov.tw/hls/C000269/live.m3u8";
+                const video = document.getElementById('cam3');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>               
         </div>
 
         <div class="camera-container">
-            <h1>關渡大橋引道</h1>
-            <img src="https://cctvatis4.ntpc.gov.tw/C000252?t=1729823135032" alt="關渡大橋引道 東北向 八里區關渡大橋(八里龍米路上方門架)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <h1>關渡大橋引道</h1>            
+            <video id="cam4" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://cctvatis4.ntpc.gov.tw/hls/C000252/live.m3u8";
+                const video = document.getElementById('cam4');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>           
+            <img src="https://cctv-ss08.thb.gov.tw:443/T15-0K+500" alt="關渡橋近淡水端" onload="this.style.display='block'; if (this.previousElementSibling) this.previousElementSibling.style.display='none';" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" class="cctv-image" style="display: block;">              
         </div>
 
         <div class="camera-container">
-            <h1>龍米路一段</h1>
-            <img src="https://cctvatis1.ntpc.gov.tw/C000159?t=1729822892830" alt="龍米路一段 北向 八里龍米路一段65巷" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <h1>龍米路一段</h1>            
+            <video id="cam5" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://cctvatis1.ntpc.gov.tw/hls/C000159/live.m3u8";
+                const video = document.getElementById('cam5');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>             
         </div>
 
         <div class="camera-container">
@@ -209,12 +314,56 @@
 
         <div class="camera-container">
             <h1>商港路</h1>
-            <img src="https://cctvatis1.ntpc.gov.tw/C000038?t=1729822996956" alt="商港路 西北向 八里區中華路商港路口" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <video id="cam6" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://cctvatis1.ntpc.gov.tw/hls/C000038/live.m3u8";
+                const video = document.getElementById('cam6');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>               
+            
         </div>
         
         <div class="camera-container">
             <h1>中華路三段</h1>
-            <img src="https://cctvatis3.ntpc.gov.tw/C000193?t=1729823053222" alt="中華路三段 南向 八里區中華路商港路口" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <video id="cam7" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://cctvatis3.ntpc.gov.tw/hls/C000193/live.m3u8";
+                const video = document.getElementById('cam7');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>                     
+            
         </div>
     </div>
 </body>
