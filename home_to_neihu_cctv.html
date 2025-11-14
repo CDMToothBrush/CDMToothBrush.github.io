@@ -215,6 +215,82 @@
         </div>
 
         <div class="camera-container">
+            <h1>劍潭路-承德路口</h1>
+            <video id="cam2" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv3.gov.taipei/NVR/b5040972-ce9b-467d-8f0d-55b05f73de10/live.m3u8";
+                const video = document.getElementById('cam2');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>                
+        </div>        
+
+        <div class="camera-container">
+            <h1>中山區北安路</h1>
+            <video id="cam7" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv5.gov.taipei/NVR/647b8d84-5bfb-46cd-a388-72f341ee7e6f/live.m3u8";
+                const video = document.getElementById('cam7');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>     
+            <video id="cam10" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv3.gov.taipei/NVR/ada20c19-8b67-425e-bc7d-dfaaaed5778d/live.m3u8       ";
+                const video = document.getElementById('cam10');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>                    
+            
+        </div>            
+        
+
+        <div class="camera-container">
             <h1>福林路-雨農路-中正路口即時影像</h1>
             <iframe src="https://hls.bote.gov.taipei/live/index.html?id=235" 
                     frameborder="0" 
@@ -224,7 +300,135 @@
                     style="display: block; width: 100%; height: 450px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
             </iframe>
         </div>
+
+        <div class="camera-container">
+            <h1>自強遂道往故宮即時影像</h1>            
+            <video id="cam5" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv4.gov.taipei/NVR/67b41bd8-7b43-43e7-a4f1-3a671338d42f/live.m3u8";
+                const video = document.getElementById('cam5');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>              
+        </div>        
         
+        <div class="camera-container">
+            <h1>自強遂道口即時影像</h1>
+            <video id="cam3" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv2.gov.taipei/NVR/a266bf1f-306b-4dd8-89b2-aa68220dd5f9/live.m3u8";
+                const video = document.getElementById('cam3');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>      
+            
+            <video id="cam4" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv2.gov.taipei/NVR/5691a585-302d-4a4d-a073-78876eb6fab9/live.m3u8";
+                const video = document.getElementById('cam4');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>                  
+        </div>        
+                              
+
+        <div class="camera-container">
+            <h1>內湖堤頂(西側)</h1>            
+            <video id="cam8" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv2.gov.taipei/NVR/74b8c0f3-7cee-4536-a795-9584066269ee/live.m3u8";
+                const video = document.getElementById('cam8');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>              
+        </div>   
+
+        <div class="camera-container">
+            <h1>敬業三路樂群二路即時影像</h1>            
+            <video id="cam9" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv2.gov.taipei/NVR/69e21625-076e-4e01-9fe1-e63d3f3e4407/live.m3u8";
+                const video = document.getElementById('cam9');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>              
+        </div>           
+
         <div class="camera-container">
             <h1>瑞光路393巷即時影像</h1>            
             <iframe src="https://hls.bote.gov.taipei/live/index.html?id=367" 
@@ -236,6 +440,33 @@
             </iframe>
         </div>
         
+        <div class="camera-container">
+            <h1>港墘即時影像</h1>   
+            <video id="cam6" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv2.gov.taipei/NVR/734b742e-6645-4be4-b7a9-80e32b259413/live.m3u8";
+                const video = document.getElementById('cam6');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>                                     
+        </div>
+
+
         <div class="camera-container">
             <h1>瑞光路478巷口即時影像</h1>
             <iframe src="https://hls.bote.gov.taipei/live/index.html?id=149" 
