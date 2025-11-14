@@ -180,80 +180,216 @@
     <div class="container">
         <div class="camera-container">
             <h1>集賢路-三信路口</h1>
-            <img src="https://cctvatis3.ntpc.gov.tw/C000166" alt="集賢路-三信路口(西側號誌桿上)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <video id="cam1" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://cctvatis3.ntpc.gov.tw/hls/C000166/live.m3u8";
+                const video = document.getElementById('cam1');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>               
         </div>
 
         <div class="camera-container">
             <h1>中正重陽橋</h1>
-            <img src="https://cctvatis4.ntpc.gov.tw/C000249?t=1729823555301" alt="048-中正重陽橋" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <iframe src="https://hls.bote.gov.taipei/live/index.html?id=048" 
+                    frameborder="0" 
+                    allowfullscreen="" 
+                    referrerpolicy="no-referrer" 
+                    onload="this.style.display='block';" 
+                    style="display: block; width: 100%; height: 450px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
+            </iframe>
+            <video id="cam2" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv2.gov.taipei/NVR/f874984c-a7ad-47fa-8208-1a3010b57cab/live.m3u8";
+                const video = document.getElementById('cam2');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>                
+                        
         </div>
 
         <div class="camera-container">
-            <h1>中正路 東向</h1>
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/048?t=1729823350302" alt="中正路 東向" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/390?t=1729823514883" alt="中正路 東向" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
-        </div>
-
-        <div class="camera-container">
-            <h1>中正路 西向</h1>
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/042?t=1729823402169" alt="中正路 西向" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/387?t=1729823642715" alt="中正路 西向" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
-        </div>
-
-        <div class="camera-container">
-            <h1>中山北路五段</h1>
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/411?t=1729823708290" alt="中山北路五段" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <h1>中正路 中山北路口</h1>
+            <iframe src="https://hls.bote.gov.taipei/live/index.html?id=411" 
+                    frameborder="0" 
+                    allowfullscreen="" 
+                    referrerpolicy="no-referrer" 
+                    onload="this.style.display='block';" 
+                    style="display: block; width: 100%; height: 450px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
+            </iframe>
         </div>
 
         <div class="camera-container">
             <h1>福林路</h1>
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/235?t=1729823732175" alt="福林路" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/234?t=1729823765018" alt="福林路" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <iframe src="https://hls.bote.gov.taipei/live/index.html?id=235" 
+                    frameborder="0" 
+                    allowfullscreen="" 
+                    referrerpolicy="no-referrer" 
+                    onload="this.style.display='block';" 
+                    style="display: block; width: 100%; height: 450px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
+            </iframe>
+            <video id="cam3" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv4.gov.taipei/NVR/3ffc2acd-fc42-4fef-ad49-38b7d4f8444a/live.m3u8";
+                const video = document.getElementById('cam3');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>               
+            
         </div>
 
         <div class="camera-container">
-            <h1>仰德大道一段</h1>
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/282?t=1729823816300" alt="仰德大道一段" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <h1>仰德大道一段</h1>            
+            <video id="cam4" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv5.gov.taipei/NVR/a47c59fa-6db7-4aad-a9e3-4ee038eff0b2/live.m3u8";
+                const video = document.getElementById('cam4');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>               
+                        
         </div>
 
         <div class="camera-container">
-            <h1>格致路</h1>
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/373?t=1729823850328" alt="格致路" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <h1>格致路</h1>            
+            <video id="cam5" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv2.gov.taipei/NVR/cd2e43d5-ec89-4bd8-ab36-20e3d4bdcc88/live.m3u8";
+                const video = document.getElementById('cam5');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>  
         </div>
 
         <div class="camera-container">
-            <h1>湖山路一段 西向 陽金公路</h1>
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/413?t=1729823902119" alt="湖山路一段 西向 陽金公路" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <h1>陽金公路</h1>            
+            <video id="cam6" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://jtmctrafficcctv3.gov.taipei/NVR/f32a45a2-c89f-4990-9b8c-e19c1eea4ff1/live.m3u8";
+                const video = document.getElementById('cam6');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>              
         </div>
 
         <div class="camera-container">
             <h1>陽明書屋</h1>
-            <iframe src="https://www.youtube.com/embed/RttyIGHbN_w?si=DQhJVd8T97mQK2vu&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
         </div>
 
         <div class="camera-container">
             <h1>竹子湖路</h1>
-            <img src="https://cctv.bote.gov.taipei:8501/MJPEG/281?t=1729823941323" alt="竹子湖路" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            
         </div>
 
         <div class="camera-container">
             <h1>二子坪</h1>
-            <iframe src="https://www.youtube.com/embed/J2gKgSFAPj4?si=OfPbXAgU98kYtCYF&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
         </div>
 
         <div class="camera-container">
             <h1>大屯山</h1>
-            <iframe src="https://www.youtube.com/embed/6ghffcNt3Nw?si=rKJnWxBzqWr4utHh&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
         </div>
 
         <div class="camera-container">
             <h1>冷水坑</h1>
-            <iframe src="https://www.youtube.com/embed/GB64WeZZQPQ?si=JpO3xvH5IgJAVSwG&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
         </div>
 
         <div class="camera-container">
             <h1>擎天崗</h1>
-            <iframe src="https://www.youtube.com/embed/yF2LAyOvq0Q?si=-qAX7Bx4xgIeAxM4&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe loading="lazy" src="https://www.youtube.com/embed/yF2LAyOvq0Q?autoplay=1&amp;mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="width:100%;height:54vh;max-height:480px;" allowfullscreen=""></iframe>
         </div>
     </div>
 </body>
