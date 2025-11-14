@@ -179,7 +179,28 @@
     <div class="container">
         <div class="camera-container">
             <h1>集賢路-三信路口</h1>
-            <img src="https://cctvatis3.ntpc.gov.tw/C000166" alt="集賢路-三信路口(西側號誌桿上)" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
+            <video id="cam1" controls autoplay muted playsinline
+                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                您的瀏覽器不支援 HTML5 影片。
+            </video>
+            <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+            <script>
+            (function(){
+                const src = "https://cctvatis3.ntpc.gov.tw/hls/C000166/live.m3u8";
+                const video = document.getElementById('cam1');
+
+                if (window.Hls && Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                } else {
+                    // 最後退回顯示錯誤訊息（或可改為顯示 iframe 指向可播放頁面）
+                    video.insertAdjacentHTML('afterend', '<p>此裝置或瀏覽器不支援 HLS 直播。</p>');
+                }
+            })();
+            </script>         
         </div>
 
         <div class="camera-container">
@@ -191,7 +212,6 @@
                     onload="this.style.display='block';" 
                     style="display: block; width: 100%; height: 450px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
             </iframe>
-            <img src="https://cctvatis4.ntpc.gov.tw/C000249" alt="重陽橋" onerror="this.src='https://tw.live/assets/maintenance.jpg';" referrerpolicy="no-referrer" onclick="reloadImage(this)">
         </div>
 
         <div class="camera-container">
