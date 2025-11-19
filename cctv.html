@@ -4,118 +4,311 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>交通監控攝影機畫面主頁</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #4a90e2;
-            --secondary-color: #f5a623;
-            --background-color: #f0f4f8;
+            --primary-color: #2563eb; /* Modern Blue */
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f59e0b; /* Amber for accents */
+            --background-color: #f8fafc; /* Slate 50 */
             --card-background: #ffffff;
-            --text-color: #333333;
-            --shadow-color: rgba(0, 0, 0, 0.1);
+            --text-primary: #1e293b; /* Slate 800 */
+            --text-secondary: #64748b; /* Slate 500 */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --radius: 16px;
         }
         
         body {
             font-family: 'Noto Sans TC', sans-serif;
             background-color: var(--background-color);
-            color: var(--text-color);
+            color: var(--text-primary);
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark), var(--secondary-color));
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+            padding: 40px 0;
+            text-align: center;
+            color: white;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Decorative circle in header */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg) translate(0, 0); }
+            50% { transform: rotate(180deg) translate(20px, 20px); }
+            100% { transform: rotate(360deg) translate(0, 0); }
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        p.subtitle {
+            margin: 10px 0 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px var(--shadow-color);
-        }
-        
-        h1 {
-            color: #ffffff;
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: 700;
+            flex: 1;
         }
         
         .cctv-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
-            margin-top: 40px;
         }
         
-        .cctv-item {
+        .cctv-card {
             background-color: var(--card-background);
-            border-radius: 12px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px var(--shadow-color);
-            transition: all 0.3s ease;
-        }
-        
-        .cctv-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px var(--shadow-color);
-        }
-        
-        .cctv-item a {
-            display: block;
-            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
-            color: var(--text-color);
-            font-size: 1.2em;
-            text-align: center;
-            transition: all 0.3s ease;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+            flex: 1 1 280px;
+            max-width: 350px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .cctv-card:nth-child(1) { animation-delay: 0.3s; }
+        .cctv-card:nth-child(2) { animation-delay: 0.4s; }
+        .cctv-card:nth-child(3) { animation-delay: 0.5s; }
+        .cctv-card:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .cctv-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+        
+        .cctv-card:hover .card-image i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .card-image {
+            height: 160px;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 4em;
             position: relative;
             overflow: hidden;
         }
         
-        .cctv-item a::before {
+        .card-image i {
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card-image::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--secondary-color);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.05) 100%);
         }
-        
-        .cctv-item a:hover {
-            color: var(--primary-color);
+
+        .card-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
-        
-        .cctv-item a:hover::before {
-            transform: translateX(0);
+
+        .card-title {
+            font-size: 1.25em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
         }
+
+        .card-desc {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.85em;
+            color: #10b981; /* Emerald 500 */
+            font-weight: 600;
+            margin-top: auto;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            background-color: white;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Specific Card Colors/Icons */
+        .card-yangmingshan .card-image { background-color: #ecfdf5; color: #059669; } /* Greenish */
+        .card-neihu .card-image { background-color: #eff6ff; color: #2563eb; } /* Blueish */
+        .card-bali .card-image { background-color: #f0f9ff; color: #0ea5e9; } /* Sky Blue */
+        .card-fengyuan .card-image { background-color: #fff7ed; color: #ea580c; } /* Orange */
+
     </style>
 </head>
 <body>
     <header>
         <h1>交通監控攝影機畫面主頁</h1>
+        <p class="subtitle">即時掌握各地路況與影像</p>
     </header>
+    
     <div class="container">
         <div class="cctv-grid">
-            <div class="cctv-item">
-                <a href="home_to_yangming_cctv.html">陽明山交通監控</a>
-            </div>
-            <div class="cctv-item">
-                <a href="home_to_neihu_cctv.html">內湖交通監控</a>
-            </div>
-            <div class="cctv-item">
-                <a href="home_to_bali_cctv.html">八里交通監控</a>
-            </div>
-            <div class="cctv-item">
-                <a href="home_to_fengyuan_cctv.html">豐原交通監控</a>
-            </div>
+            <!-- 陽明山 -->
+            <a href="home_to_yangming_cctv.html" class="cctv-card card-yangmingshan">
+                <div class="card-image">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">陽明山交通監控</div>
+                    <div class="card-desc">即時觀看陽明山地區道路狀況與天氣情形。</div>
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        訊號正常
+                    </div>
+                </div>
+            </a>
+
+            <!-- 內湖 -->
+            <a href="home_to_neihu_cctv.html" class="cctv-card card-neihu">
+                <div class="card-image">
+                    <i class="fas fa-city"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">內湖交通監控</div>
+                    <div class="card-desc">掌握內湖科學園區及周邊重要路口車流。</div>
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        訊號正常
+                    </div>
+                </div>
+            </a>
+
+            <!-- 八里 -->
+            <a href="home_to_bali_cctv.html" class="cctv-card card-bali">
+                <div class="card-image">
+                    <i class="fas fa-water"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">八里交通監控</div>
+                    <div class="card-desc">監控八里左岸及主要聯外道路交通影像。</div>
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        訊號正常
+                    </div>
+                </div>
+            </a>
+
+            <!-- 豐原 -->
+            <a href="home_to_fengyuan_cctv.html" class="cctv-card card-fengyuan">
+                <div class="card-image">
+                    <i class="fas fa-road"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">豐原交通監控</div>
+                    <div class="card-desc">查看豐原地區即時路況與重要路段影像。</div>
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        訊號正常
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
+
+    <footer>
+        &copy; 2025 交通監控系統 | Designed for User
+    </footer>
 </body>
 </html>

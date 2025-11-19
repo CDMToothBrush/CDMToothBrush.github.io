@@ -3,25 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>內湖交通監控攝影機畫面</title>
+    <title>內湖區交通監控畫面</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4a90e2;
-            --secondary-color: #f5a623;
-            --background-color: #f0f4f8;
+            --primary-color: #2563eb; /* Modern Blue */
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f59e0b; /* Amber for accents */
+            --background-color: #f8fafc; /* Slate 50 */
             --card-background: #ffffff;
-            --text-color: #333333;
-            --shadow-color: rgba(0, 0, 0, 0.1);
+            --text-primary: #1e293b; /* Slate 800 */
+            --text-secondary: #64748b; /* Slate 500 */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --radius: 16px;
         }
         
         body {
             font-family: 'Noto Sans TC', sans-serif;
             background-color: var(--background-color);
-            color: var(--text-color);
+            color: var(--text-primary);
             margin: 0;
             padding: 0;
             line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark), var(--secondary-color));
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Decorative circle in header */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg) translate(0, 0); }
+            50% { transform: rotate(180deg) translate(20px, 20px); }
+            100% { transform: rotate(360deg) translate(0, 0); }
+        }
+        
+        h1 {
+            margin: 0;
+            font-weight: 700;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 2em;
+            padding: 15px 0;
+            background-color: transparent;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .camera-container h1 {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            font-size: 1.5em;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border-bottom: none;
         }
         .button-container {
             position: fixed;
@@ -52,58 +130,65 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 15px var(--shadow-color);
         }          
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        h1 {
-            color: #ffffff;
-            font-size: 2em;
-            margin: 0;
-            font-weight: 700;
-            padding: 15px 0;
-            background-color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
         .camera-container {
             background-color: var(--card-background);
-            border-radius: 12px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px var(--shadow-color);
+            box-shadow: var(--shadow-sm);
             margin: 30px auto;
             max-width: 800px;
             padding: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .camera-container:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .camera-container:nth-child(1) { animation-delay: 0.1s; }
+        .camera-container:nth-child(2) { animation-delay: 0.2s; }
+        .camera-container:nth-child(3) { animation-delay: 0.3s; }
+        .camera-container:nth-child(4) { animation-delay: 0.4s; }
+        .camera-container:nth-child(5) { animation-delay: 0.5s; }
+        .camera-container:nth-child(6) { animation-delay: 0.6s; }
+        .camera-container:nth-child(7) { animation-delay: 0.7s; }
+        .camera-container:nth-child(8) { animation-delay: 0.8s; }
+        .camera-container:nth-child(9) { animation-delay: 0.9s; }
+        .camera-container:nth-child(10) { animation-delay: 1.0s; }
+        .camera-container:nth-child(11) { animation-delay: 1.1s; }
+        .camera-container:nth-child(12) { animation-delay: 1.2s; }
+        .camera-container:nth-child(13) { animation-delay: 1.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        img {
+        img, iframe, video {
             width: 100%;
-            height: 450px;
+            height: 600px;
             object-fit: cover;
             border-radius: 8px;
             display: block;
             margin: 0 auto;
             box-shadow: 0 2px 10px var(--shadow-color);
-            cursor: pointer;
-            transition: transform 0.2s ease;
         }
-
-        img:hover {
-            transform: scale(1.02);
+        
+        .camera-container img + img,
+        .camera-container iframe + iframe,
+        .camera-container video + video {
+            margin-top: 20px;
         }
-
+        
         @media screen and (max-width: 768px) {
             .container {
                 padding: 20px 10px;
@@ -116,10 +201,12 @@
             .camera-container {
                 margin: 20px 10px;
             }
-            img {
+            
+            img, iframe, video {
                 height: 300px;
             }
         }
+
         .home-button {
             position: fixed;
             top: 20px;
@@ -157,9 +244,9 @@
             .button {
                 padding: 8px 15px;
                 font-size: 0.9em;
-            }            
-        }        
-    </style>   
+            }
+        }
+    </style>    
     <script>
         function reloadImage(imgElement) {            
             const originalSrc = imgElement.src;
@@ -180,7 +267,7 @@
         <div class="camera-container">
             <h1>集賢路-三信路口</h1>
             <video id="cam1" controls autoplay muted playsinline
-                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                style="display:block; width:100%; height:500px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
                 您的瀏覽器不支援 HTML5 影片。
             </video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -210,14 +297,14 @@
                     allowfullscreen="" 
                     referrerpolicy="no-referrer" 
                     onload="this.style.display='block';" 
-                    style="display: block; width: 100%; height: 450px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
+                    style="display: block; width: 100%; height: 500px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
             </iframe>
         </div>
 
         <div class="camera-container">
             <h1>劍潭路-承德路口</h1>
             <video id="cam2" controls autoplay muted playsinline
-                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                style="display:block; width:100%; height:500px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
                 您的瀏覽器不支援 HTML5 影片。
             </video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -243,7 +330,7 @@
         <div class="camera-container">
             <h1>中山區北安路</h1>
             <video id="cam7" controls autoplay muted playsinline
-                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                style="display:block; width:100%; height:500px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
                 您的瀏覽器不支援 HTML5 影片。
             </video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -265,7 +352,7 @@
             })();
             </script>     
             <video id="cam10" controls autoplay muted playsinline
-                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                style="display:block; width:100%; height:500px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
                 您的瀏覽器不支援 HTML5 影片。
             </video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -297,14 +384,14 @@
                     allowfullscreen="" 
                     referrerpolicy="no-referrer" 
                     onload="this.style.display='block';" 
-                    style="display: block; width: 100%; height: 450px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
+                    style="display: block; width: 100%; height: 500px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
             </iframe>
         </div>
 
         <div class="camera-container">
             <h1>自強遂道往故宮即時影像</h1>            
             <video id="cam5" controls autoplay muted playsinline
-                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                style="display:block; width:100%; height:500px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
                 您的瀏覽器不支援 HTML5 影片。
             </video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -330,7 +417,7 @@
         <div class="camera-container">
             <h1>自強遂道口即時影像</h1>
             <video id="cam3" controls autoplay muted playsinline
-                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                style="display:block; width:100%; height:500px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
                 您的瀏覽器不支援 HTML5 影片。
             </video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -353,7 +440,7 @@
             </script>      
             
             <video id="cam4" controls autoplay muted playsinline
-                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                style="display:block; width:100%; height:500px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
                 您的瀏覽器不支援 HTML5 影片。
             </video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -380,7 +467,7 @@
         <div class="camera-container">
             <h1>內湖堤頂(西側)</h1>            
             <video id="cam8" controls autoplay muted playsinline
-                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                style="display:block; width:100%; height:500px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
                 您的瀏覽器不支援 HTML5 影片。
             </video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -406,7 +493,7 @@
         <div class="camera-container">
             <h1>敬業三路樂群二路即時影像</h1>            
             <video id="cam9" controls autoplay muted playsinline
-                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                style="display:block; width:100%; height:500px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
                 您的瀏覽器不支援 HTML5 影片。
             </video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -436,14 +523,14 @@
                     allowfullscreen="" 
                     referrerpolicy="no-referrer" 
                     onload="this.style.display='block';" 
-                    style="display: block; width: 100%; height: 450px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
+                    style="display: block; width: 100%; height: 500px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
             </iframe>
         </div>
         
         <div class="camera-container">
             <h1>港墘即時影像</h1>   
             <video id="cam6" controls autoplay muted playsinline
-                style="display:block; width:100%; height:450px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
+                style="display:block; width:100%; height:500px; border-radius:8px; box-shadow:0 2px 10px var(--shadow-color); object-fit:cover;">
                 您的瀏覽器不支援 HTML5 影片。
             </video>
             <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -474,7 +561,7 @@
                     allowfullscreen="" 
                     referrerpolicy="no-referrer" 
                     onload="this.style.display='block';" 
-                    style="display: block; width: 100%; height: 450px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
+                    style="display: block; width: 100%; height: 500px; border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color);">
             </iframe>
         </div>
     </div>
